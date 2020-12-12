@@ -1,0 +1,22 @@
+{% extends 'childapp/base.html' %}
+{% block content %}
+  {% load static %}
+  <div class="container">
+      <video width='600' height= '480' controls>
+        <source src="{% static 'videos/stickman.mp4' type='video/mp4' autoplay='True' %}"
+        >
+          Your browser does not support the video tag.
+      </video>
+      <div class="row">
+          <div class="col s6 m12">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">Who we are!</span>
+                <p>ok this is about</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+    </div>
+{% endblock %}

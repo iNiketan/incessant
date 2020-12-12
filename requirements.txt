@@ -5,7 +5,7 @@ django-heroku==0.3.1
 django-tinymce4-lite==1.7.5
 gunicorn==20.0.4
 pip==20.3
-pillow=8.0.1
+pillow==8.0.1
 pipenv==2018.11.26
 pyparsing==2.4.7
 python3-openid==3.2.0

@@ -98,26 +98,8 @@ def login_request(request):
         form = AuthenticationForm()
         return render(request, 'childapp/login.html',{'form': form})
 
-#
-# def login_request(request):
-#     if request.user.is_authenticated:
-#         return redirect('childapp:frontpage')
-#
-#     if request.method == 'POST':
-#         loginusername = request.POST['loginusername']
-#         loginpassword = request.POST['loginpassword']
-#         user = authenticate(request, username=loginusername, password=loginpassword)
-#
-#         if user is not None:
-#             login(request, user)
-#             return redirect('childapp:frontpage')
-#         else:
-#             form = AuthenticationForm()
-#             return render(request, 'childapp/login.html', {'form': form})
-#
-#     else:
-#         form = AuthenticationForm()
-#         return render(request, 'childapp/login.html', {'form': form})
+
+
 
 
 

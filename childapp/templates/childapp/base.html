@@ -1,46 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Incessant Private Ltd</title>
-    {% load static %}
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<head>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Incessant Private Ltd</title>
+  {% load static %}
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  <!-- CSS  -->
+  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!-- navbar -->
+  <nav class="teal lighten-2">
+    <div class="nav-wrapper container">
+      <a href="{% url 'childapp:frontpage' %}" class="brand-logo white-text">Incessant</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{% url 'childapp:aboutapp' %}" class="white-text">About</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'childapp:carear' %}" class="white-text">Carear</a></li>
+        <li><a href="{% url 'childapp:contactUs' %}" class="white-text">Contact Us</a></li>
+        <li><a href="{% url 'childapp:blog' %}" class="white-text">Blog</a></li>
+        <li><a href="{% url 'childapp:signUp' %}" class="white-text">{{user.username}}</a></li>
+        <li><a href="{% url 'childapp:logout_request' %}" class="white-text">Logout</a></li>
+        {% else %}
 
-  </head>
-  <body>
+        <li><a href="{% url 'childapp:carear' %}" class="white-text">Carear</a></li>
+        <li><a href="{% url 'childapp:blog' %}" class="white-text">Blog</a></li>
+        <li><a href="{% url 'childapp:contactUs' %}" class="white-text">Contact Us</a></li>
+        <li><a href="{% url 'childapp:signUp' %}" class="white-text">SignUp</a></li>
+        <li><a href="{% url 'childapp:login_request' %}" class="white-text">Login</a></li>
+        {% endif %}
 
-  <!-- navbar -->
-    <nav class="blue lighten">
-      <div class="nav-wrapper container">
-        <a href="{% url 'childapp:frontpage' %}" class="brand-logo">Incessant</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="{% url 'childapp:aboutapp' %}">About</a></li>
-          {% if user.is_authenticated %}
-          <li><a href="{% url 'childapp:signUp' %}">{{user.username}}</a></li>
-          <li><a href="{% url 'childapp:logout_request' %}">Logout</a></li>
-          <li><a href="{% url 'childapp:carear' %}">Carear</a></li>
-          <li><a href="{% url 'childapp:contactUs' %}">Contact Us</a></li>
-          <li><a href="{% url 'childapp:blog' %}">Blog</a></li>
-          {% else %}
-          <li><a href="{% url 'childapp:signUp' %}">SignUp</a></li>
-          <li><a href="{% url 'childapp:login_request' %}">Login</a></li>
-          <li><a href="{% url 'childapp:carear' %}">Carear</a></li>
-          <li><a href="{% url 'childapp:blog' %}">Blog</a></li>
-          <li><a href="{% url 'childapp:contactUs' %}">Contact Us</a></li>
-          {% endif %}
-
-        </ul>
-      </div>
+      </ul>
+    </div>
   </nav>
 
   {% if messages %}
@@ -58,20 +56,17 @@
   {% endif %}
 
   <ul class="sidenav" id="mobile-demo">
-    <li><a href="{% url 'childapp:aboutapp' %}">About</a></li>
-    <li><a href="{% url 'childapp:services' %}">Services</a></li>
-    <li><a href="{% url 'childapp:carear' %}">Carear</a></li>
-    <li><a href="{% url 'childapp:contactUs' %}">Contact Us</a></li>
+    <li><a href="{% url 'childapp:aboutapp' %}" class="white-text">About</a></li>
+    <li><a href="{% url 'childapp:services' %}" class="white-text">Services</a></li>
+    <li><a href="{% url 'childapp:carear' %}" class="white-text">Carear</a></li>
+    <li><a href="{% url 'childapp:contactUs' %}" class="white-text">Contact Us</a></li>
   </ul>
     {% block content %}
       replace me
     {% endblock %}
 
-  </body>
-
-
-  <!-- ///////////footer  ///////////        -->
-  <footer class="page-footer blue lighten ">
+  <!-- footer      -->
+  <footer class="page-footer teal lighten-2 ">
 
     <div class="container">
       <div class="row">
@@ -79,14 +74,10 @@
           <h5 class="white-text">Incessant</h5>
           <p class="grey-text text-lighten-4">Born and raised in a Hindu family in
             coastal Gujarat, western India, Gandhi trained in law at the Inner Temple,
-            London, and was called to the bar at age 22 in June 1891.
-            After two uncertain years in India, where he was unable to start a successful
-            law practice, he moved to South Africa
-            in 1893 to represent an Indian merchant in a lawsuit.
-            He went on to stay for 21 years</p>
+          </p>
         </div>
         <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
+          <h5 class="white-text">Get_in_Touch</h5>
           <ul>
             <li><a class="grey-text text-lighten-3" href="#!">Contacts</a></li>
             <li><a class="grey-text text-lighten-3" href="#!">phone no</a></li>
@@ -102,6 +93,11 @@
       </div>
     </div>
   </footer>
+
+  <!--  Scripts -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static 'js/materialize.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
   <script>
     $(document).ready(function(){
     $('.sidenav').sidenav();
@@ -126,4 +122,7 @@
     });
 
   </script>
+
+</body>
+
 </html>

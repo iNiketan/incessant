@@ -24,6 +24,7 @@ def contactus(request):
         message = request.POST['message']
         contact = Contactus(name=name, mobile=mob, email=email, message=message)
         contact.save()
+        messages.success(request, "message sent")
     return render(request, 'childapp/contactUs.html')
 
 def services(request):
@@ -99,8 +100,28 @@ def login_request(request):
         return render(request, 'childapp/login.html',{'form': form})
 
 
+def login_request2(request):
+    if request.method == 'POST':
+        #form = AuthenticationForm(data=request.POST)
+        #if form.is_valid():
+        print('form valided')
+        loginusername = request.POST['loginusername']
+        loginpassword = request.POST['loginpassword']
+        user = authenticate(request, username=loginusername, password=loginpassword)
+        if user is not None:
+            login(request, user)
+            messages.info(request, f"You are loged in as {user.username}")
+            return redirect('childapp:frontpage')
 
+        else:
+            form = AuthenticationForm(data=request.POST)
+            for msg in form.error_messages:
+                messages.error(request, f"{form.error_messages[msg]}")
+            return render(request, 'childapp/login2.html', {'form': form})
 
+    else:
+        form = AuthenticationForm()
+        return render(request, 'childapp/login2.html',{'form': form})
 
 
 

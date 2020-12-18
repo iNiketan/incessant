@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link href="{% static 'css/login-style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <div class="background">
+            <div class="text">
+                <h1>Login</h1>
+                <p>No Account? <a href="signup.html">Sign up</a></p>
+            </div>
+            <div class="box">
+                <form class="col s12 m6 l6" method="POST" action="{% url 'childapp:login_request' %}">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="input-field">
+                      <input id="loginusername" name="loginusername" type="text" class="validate" placeholder="User Name">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field">
+                      <input id="loginpassword" type="password" name="loginpassword" class="validate"
+                             placeholder="Password">
+                    </div>
+                  </div>
+            <!--      submit botton -->
+                  <button class="btn waves-effect waves-light" type="submit" value="login" name="loginbtn">Login
+                    <i class="material-icons right">login</i>
+                  </button>
+
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

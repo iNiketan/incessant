@@ -2,11 +2,13 @@
 {% block content %}
   {% load static %}
 
-  <div class="article-detail">
-    <div class="details">
-        <h2>{{ details.title }}</h2>
-        <p>{{ details.date_published }}</p>
-        <p>{{ details.draft }}</p>
-    </div>
+  <div class="container">
+      <div class="article-detail">
+        <div class="details">
+            <h2 class="center">{{ details.title }}</h2>
+            <p>{{ details.date_published }}</p>
+            <p>{{ details.draft }}</p>
+        </div>
+      </div>
   </div>
 {% endblock %}

@@ -2,38 +2,54 @@
 
 {% block content %}
   {% load static %}
-  <h2 class="center-align"> Login </h2>
-    <div class="row">
-      <div class="col s12 m4 offset-l4"><hr></div>
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">Login</h1>
+
+<!--        <div class="row center"> -->
+<!--          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>-->
+<!--        </div> -->
+<!--        <br><br> -->
+
+      </div>
     </div>
-  <div class="row">
-  <div class="container">
-
-    <form class="col s12 m6 l6" method="POST" action="{% url 'childapp:login_request' %}">
-          {% csrf_token %}
-          <div class="row">
-            <div class="input-field col s12 m12 l12">
-              <input id="loginusername" name="loginusername" type="text" class="validate">
-              <label for="loginusername">User Name</label>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="input-field col s12 m12 l12">
-              <input id="loginpassword" type="password" name="loginpassword" class="validate">
-              <label for="loginpassword">Password</label>
-            </div>
-          </div>
-    <!--      submit botton-->
-          <button class="btn waves-effect waves-light" type="submit" value="login" name="loginbtn">Submit
-            <i class="material-icons right">send</i>
-          </button>
-
-        </form>
-
-
-
-
+    <div class="parallax"><img width="100%" height="auto" src="{% static 'images/13.jpg' %}" alt="Unsplashed background img 1"></div>
   </div>
+
+
+
+<!-- login below-->
+
+  <div class="section">
+    <div class="container">
+    <div class="row center">
+
+        <form class="col s12 m4" method="POST" action="{% url 'childapp:login_request' %}">
+              {% csrf_token %}
+              <div class="row">
+                <div class="input-field col s12 m12 offset-l4">
+                  <input id="loginusername" name="loginusername" type="text" class="validate">
+                  <label for="loginusername">User Name</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12 m12 offset-l4">
+                  <input id="loginpassword" type="password" name="loginpassword" class="validate">
+                  <label for="loginpassword">Password</label>
+                </div>
+              </div>
+        <!--      submit botton-->
+              <div class="row offset-l2 ">
+                  <button class="btn waves-effect waves-light offset-l4" type="submit" value="login" name="loginbtn">Login
+                    <i class="material-icons left">send</i>
+                  </button>
+                  <a href="{% url 'childapp:signUp' %}" class="teal-text center">Or SignUp insteed</a>
+              </div>
+        </form>
+    </div>
+    </div>
   </div>
 {% endblock %}

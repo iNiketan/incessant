@@ -12,7 +12,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'h@(ea2x74qv+hlg=)s62%o+1t9g_+-h&2ze_og2p#^i7p1#k(!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['incessant.herokuapp.com/', '127.0.0.1']
 

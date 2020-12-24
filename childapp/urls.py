@@ -14,7 +14,8 @@ urlpatterns = [
     path("blog/", views.blog, name='blog'),
     path("<int:sno>/", views.single, name='single'),
     path("login/", views.login_request, name='login_request'),
-    path("login2/", views.login_request2, name='login2')
+    path("login2/", views.login_request2, name='login2'),
+    path("askque/", views.askque, name='askque'),
 
     # path("signup2/", views.signUp2, name='signUp2'),
 ]

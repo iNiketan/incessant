@@ -24,30 +24,30 @@
 
   <div class="section">
     <div class="container">
-    <div class="row center">
+    <div class="row">
 
-        <form class="col s12 m4" method="POST" action="{% url 'childapp:login_request' %}">
+        <form class="col s12 m4 left offset-l3" method="POST" action="{% url 'childapp:login_request' %}">
               {% csrf_token %}
               <div class="row">
-                <div class="input-field col s12 m12 offset-l4">
+                <div class="input-field col s12 m12">
                   <input id="loginusername" name="loginusername" type="text" class="validate">
                   <label for="loginusername">User Name</label>
                 </div>
               </div>
 
               <div class="row">
-                <div class="input-field col s12 m12 offset-l4">
+                <div class="input-field col s12 m12">
                   <input id="loginpassword" type="password" name="loginpassword" class="validate">
                   <label for="loginpassword">Password</label>
                 </div>
               </div>
         <!--      submit botton-->
-              <div class="row offset-l2 ">
-                  <button class="btn waves-effect waves-light offset-l4" type="submit" value="login" name="loginbtn">Login
-                    <i class="material-icons left">send</i>
-                  </button>
-                  <a href="{% url 'childapp:signUp' %}" class="teal-text center">Or SignUp insteed</a>
-              </div>
+              
+              <button class="btn waves-effect waves-light offset-l4" type="submit" value="login" name="loginbtn">Login
+                <i class="material-icons right">login</i>
+              </button>
+              <a href="{% url 'childapp:signUp' %}" class="teal-text center">&ensp;&ensp;&ensp;Or SignUp Insteed</a>
+          
         </form>
     </div>
     </div>

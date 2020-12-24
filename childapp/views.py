@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
+from django.core.mail import send_mail
+from django.conf import settings
 
 from .models import Post, Contactus
 from .forms import CreateUserForm
@@ -23,6 +25,7 @@ def contactus(request):
         email = request.POST['email']
         message = request.POST['message']
         contact = Contactus(name=name, mobile=mob, email=email, message=message)
+        send_mail('Contact form', message="{} with mob {} email {} message {}".format(name, mob, email, message), from_email=settings.EMAIL_HOST_USER, recipient_list=['sniketan9@gmail.com','chetansh1104@gmail.com'], fail_silently=False)
         contact.save()
         messages.success(request, "message sent")
     return render(request, 'childapp/contactUs.html')
@@ -33,7 +36,7 @@ def services(request):
 def carear(request):
     return render(request, 'childapp/carear.html')
 
-##############################################
+
 def blog(request):
     post = Post.objects.all()
     return render(request, 'childapp/blog.html', context={'post': post})
@@ -42,7 +45,7 @@ def blog(request):
 def single(request, sno):
     details = Post.objects.get(sno=sno)
     return render(request, 'childapp/single.html', {'details':details})
-###############################################
+
 
 ##### signup########
 def signUp(request):
@@ -65,11 +68,11 @@ def signUp(request):
                 messages.error(request, f"{form.error_messages[msg]}")
 
             return render(request=request,
-                          template_name="childapp/registration.html",
+                          template_name="childapp/signup.html",
                           context={"form": form})
 
     form = UserCreationForm
-    return render(request, 'childapp/registration.html', context={'form':form})
+    return render(request, 'childapp/signup.html', context={'form':form})
 
 def logout_request(request):
     logout(request)
@@ -124,4 +127,5 @@ def login_request2(request):
         return render(request, 'childapp/login2.html',{'form': form})
 
 
-
+def askque(request):
+    return render(request, 'childapp/askque.html')

@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Incessant Private Ltd</title>
   {% load static %}
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- CSS  -->
-  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
 
 </head>
+
 <body>
 
-<!-- navbar -->
+  <!-- navbar -->
   <nav class="teal lighten-2">
     <div class="nav-wrapper container">
       <a href="{% url 'childapp:frontpage' %}" class="brand-logo white-text">Incessant</a>
@@ -42,31 +44,31 @@
   </nav>
 
   {% if messages %}
-    {% for message in messages %}
-        {% if message.tags == 'success'%}
-            <script>M.toast({html: "{{message}}", classes: 'green rounded', displayLength:2000});</script>
-        {% elif message.tags == 'info'%}
-            <script>M.toast({html: "{{message}}", classes: 'blue rounded', displayLength:2000});</script>
-        {% elif message.tags == 'warning'%}
-            <script>M.toast({html: "{{message}}", classes: 'orange rounded', displayLength:10000});</script>
-        {% elif message.tags == 'error'%}
-            <script>M.toast({html: "{{message}}", classes: 'red rounded', displayLength:10000});</script>
-        {% endif %}
-    {% endfor %}
+  {% for message in messages %}
+  {% if message.tags == 'success'%}
+  <script>M.toast({ html: "{{message}}", classes: 'green rounded', displayLength: 2000 });</script>
+  {% elif message.tags == 'info'%}
+  <script>M.toast({ html: "{{message}}", classes: 'blue rounded', displayLength: 2000 });</script>
+  {% elif message.tags == 'warning'%}
+  <script>M.toast({ html: "{{message}}", classes: 'orange rounded', displayLength: 10000 });</script>
+  {% elif message.tags == 'error'%}
+  <script>M.toast({ html: "{{message}}", classes: 'red rounded', displayLength: 10000 });</script>
+  {% endif %}
+  {% endfor %}
   {% endif %}
 
-  <ul class="sidenav" id="mobile-demo">
+  <ul class="sidenav teal lighten-3" id="mobile-demo">
     <li><a href="{% url 'childapp:aboutapp' %}" class="white-text">About</a></li>
     <li><a href="{% url 'childapp:services' %}" class="white-text">Services</a></li>
     <li><a href="{% url 'childapp:carear' %}" class="white-text">Carear</a></li>
     <li><a href="{% url 'childapp:contactUs' %}" class="white-text">Contact Us</a></li>
   </ul>
-    {% block content %}
-      replace me
-    {% endblock %}
+  {% block content %}
+  replace me
+  {% endblock %}
 
   <!-- footer      -->
-  <footer class="page-footer teal lighten-2 ">
+  <footer class="page-footer teal lighten-2">
 
     <div class="container">
       <div class="row">
@@ -88,8 +90,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      © 2020 Incessant Private Ltd
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        © 2020 Incessant Private Ltd
       </div>
     </div>
   </footer>
@@ -99,26 +100,26 @@
   <script src="{% static 'js/materialize.js' %}"></script>
   <script src="{% static 'js/init.js' %}"></script>
   <script>
-    $(document).ready(function(){
-    $('.sidenav').sidenav();
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
     });
 
     $('.carousel.carousel-slider').carousel({
-    fullWidth: false,
-    indicators: true,
-    duration: 200,
-    noWrap: true
+      fullWidth: false,
+      indicators: true,
+      duration: 200,
+      noWrap: true
     });
 
     $('#textarea1').val('');
     M.textareaAutoResize($('#textarea1'));
 
-    $(document).ready(function() {
-    $('input#mob, input#message').characterCounter();
+    $(document).ready(function () {
+      $('input#mob, input#message').characterCounter();
     });
 
-    $(document).ready(function(){
-    $('.materialboxed').materialbox();
+    $(document).ready(function () {
+      $('.materialboxed').materialbox();
     });
 
   </script>

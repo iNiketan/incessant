@@ -1,22 +1,19 @@
 {% extends 'childapp/base.html' %}
 {% block content %}
   {% load static %}
-  <div class="container">
-      <video width='600' height= '480' controls>
-        <source src="{% static 'videos/stickman.mp4' type='video/mp4' autoplay='True' %}"
-        >
-          Your browser does not support the video tag.
-      </video>
-      <div class="row">
-          <div class="col s6 m12">
-            <div class="card blue-grey darken-1">
-              <div class="card-content white-text">
-                <span class="card-title">Who we are!</span>
-                <p>ok this is about</p>
-              </div>
-
-            </div>
-          </div>
-        </div>
+  <div>
+    <!-- images -->
+    <div id="div-img" class="side-box-div">
+        <img src="{% static 'images/23.jpg' %}" alt="image" id="img-about" class="ct-img">
+      </div>
     </div>
-{% endblock %}
+    <!-- text -->
+    <div id="div-text" class="side-box-div">
+      <div class="div-text2">
+        <h2 class="" id="about-heading" class="teal-text text-lighten-2">Our Story</h2>
+        <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad sit id pariatur consequuntur quia repellat laudantium accusantium velit optio, libero praesentium adipisci fugit, earum, corporis eius eaque doloribus nam. Sed, ex aliquid.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, rem mollitia excepturi doloribus obcaecati voluptatum unde dignissimos sapiente deleniti. Iusto est ab explicabo sapiente, quisquam laborum. Odit perspiciatis inventore dicta eius vero.</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}  

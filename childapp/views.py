@@ -15,8 +15,10 @@ def frontpage(request):
     context = {'post': Post.objects.all}
     return render(request, 'childapp/frontpage.html', context=context)
 
+
 def aboutapp(request):
     return render(request, 'childapp/about.html')
+
 
 def contactus(request):
     if request.method == 'POST':
@@ -30,8 +32,10 @@ def contactus(request):
         messages.success(request, "message sent")
     return render(request, 'childapp/contactUs.html')
 
+
 def services(request):
     return render(request, 'childapp/services.html')
+
 
 def carear(request):
     return render(request, 'childapp/carear.html')
@@ -47,7 +51,6 @@ def single(request, sno):
     return render(request, 'childapp/single.html', {'details':details})
 
 
-##### signup########
 def signUp(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -74,10 +77,12 @@ def signUp(request):
     form = UserCreationForm
     return render(request, 'childapp/signup.html', context={'form':form})
 
+
 def logout_request(request):
     logout(request)
     messages.info(request, "Loged out successfully!!")
     return redirect('childapp:frontpage')
+
 
 def login_request(request):
     if request.method == 'POST':

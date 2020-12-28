@@ -40,7 +40,17 @@ main {
      width: 100%;
    }
  
+ @media only screen and (max-width : 992px) {
+   .parallax-container .section {
+     position: absolute;
+     top: 40%;
+   }
+   #index-banner .section {
+     top: 10%;
+   }
 
+
+ }
 
 
  @media only screen and (max-width : 600px) {
@@ -68,7 +78,7 @@ footer.page-footer {
 }
 
 #div-img {
-  /* background-color: yellow; */
+  background-color: yellow;
   float: left;
 }
 
@@ -91,7 +101,7 @@ footer.page-footer {
 }
 
 #div-text {
-  /* background-color: blue; */
+  background-color: blue;
   float: right;
 }
 
@@ -109,42 +119,3 @@ footer.page-footer {
   text-align: left;
 }
 
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
-
-
-  /* about */
-  .side-box-div{
-    width: 100%;
-  }
-
-  #div-img {
-    float: center;
-  }
-
-  #img-about{
-    height: auto;
-    
-  }
-  
-  .div-img2{
-    padding: 0px;
-  }
-
-.div-text2{
-  text-align: left;
-}
-
-#about-heading{
-  text-align: center;
-}
-
-
-
-}

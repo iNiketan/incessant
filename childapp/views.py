@@ -6,14 +6,14 @@ from django.contrib.auth import login, logout, authenticate
 from django.core.mail import send_mail
 from django.conf import settings
 
-from .models import Post, Contactus
+from .models import Post, Contactus 
 from .forms import CreateUserForm
 
 
 # Create your views her
 def frontpage(request):
-    context = {'post': Post.objects.all}
-    return render(request, 'childapp/frontpage.html', context=context)
+    messages.success(request, 'Keep Learning')
+    return render(request, 'childapp/frontpage.html')
 
 
 def aboutapp(request):
@@ -25,8 +25,8 @@ def contactus(request):
         name = request.POST['name']
         mob = request.POST['mob']
         email = request.POST['email']
-        message = request.POST['message']
-        contact = Contactus(name=name, mobile=mob, email=email, message=message)
+        msg = request.POST['message']
+        contact = Contactus(name=name, mobile=mob, email=email, message=msg)
         send_mail('Contact form', message="{} with mob {} email {} message {}".format(name, mob, email, message), from_email=settings.EMAIL_HOST_USER, recipient_list=['sniketan9@gmail.com','chetansh1104@gmail.com'], fail_silently=False)
         contact.save()
         messages.success(request, "message sent")
@@ -64,6 +64,7 @@ def signUp(request):
             user.save()
             login(request, user)
             messages.success(request,f"new accout created {user.username}")
+            # print(messages.success)
             messages.info(request, f"You are loged in as {user.username}")
             return redirect('childapp:frontpage')
         else:

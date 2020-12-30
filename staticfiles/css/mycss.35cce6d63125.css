@@ -1,0 +1,86 @@
+/* this if my css edits */
+
+ @media only screen and (min-width: 768px){
+    /* about */
+   .side-box-div{
+     width: 100%;
+   }
+ 
+   #div-img {
+     float: center;
+   }
+ 
+   #img-about{
+     height: auto;
+     
+   }
+   
+   .div-img2{
+     padding: 0px;
+   }
+ 
+   .div-text2{
+     text-align: left;
+   }
+ 
+   #about-heading{
+     text-align: center;
+   }
+ 
+  }
+ 
+ 
+ /*  about page */
+ 
+ .ct-div-block{
+   display: flex;
+   flex-wrap: nowrap;
+   flex-direction: column;
+   align-items: flex-start;
+ }
+ 
+ .side-box-div{
+   width: 50%;
+ }
+ 
+ #div-img {
+   background-color: yellow;
+   float: left;
+ }
+ 
+ #img-about{
+   height: 550px;
+   
+ }
+ 
+ .div-img2{
+   align-items: center;
+   align-content: center;
+   text-align: center;
+   padding: 40px;
+ }
+ 
+ 
+ .ct-img{
+   max-width: 100%;
+ 
+ }
+ 
+ #div-text {
+   background-color: blue;
+   float: right;
+ }
+ 
+ .div-text2{
+   align-items: center;
+   align-content: center;
+   text-align: center;
+   padding-left: 10%;
+   padding-right: 10%;
+   padding-top: 0%;
+   padding-bottom: 10%;
+ }
+ 
+ #about-heading{
+   text-align: left;
+ }

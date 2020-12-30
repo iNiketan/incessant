@@ -4,6 +4,7 @@
 <head>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="expires" content="0">
   <title>Incessant Private Ltd</title>
   {% load static %}
   <!--Import Google Icon Font-->
@@ -12,6 +13,10 @@
   <!-- CSS  -->
   <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
   <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="{% static 'css/mycss.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+
+  <!-- js -->
+  
 
 </head>
 
@@ -20,7 +25,7 @@
   <!-- navbar -->
   <nav class="teal lighten-2">
     <div class="nav-wrapper container">
-      <a href="{% url 'childapp:frontpage' %}" class="brand-logo white-text">Incessant</a>
+      <a href="{% url 'childapp:frontpage' %}" class="brand-logo white-text"><img style="height: 45px; width: 231px; position: absolute; max-width: 257px; left: 0px; padding-top: 5px;" src="{% static 'images/runing.svg' %}" alt="logo">Incessant</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="{% url 'childapp:aboutapp' %}" class="white-text">About</a></li>
@@ -43,19 +48,6 @@
     </div>
   </nav>
 
-  {% if messages %}
-  {% for message in messages %}
-  {% if message.tags == 'success'%}
-  <script>M.toast({ html: "{{message}}", classes: 'green rounded', displayLength: 2000 });</script>
-  {% elif message.tags == 'info'%}
-  <script>M.toast({ html: "{{message}}", classes: 'blue rounded', displayLength: 2000 });</script>
-  {% elif message.tags == 'warning'%}
-  <script>M.toast({ html: "{{message}}", classes: 'orange rounded', displayLength: 10000 });</script>
-  {% elif message.tags == 'error'%}
-  <script>M.toast({ html: "{{message}}", classes: 'red rounded', displayLength: 10000 });</script>
-  {% endif %}
-  {% endfor %}
-  {% endif %}
 
   <ul class="sidenav teal lighten-3" id="mobile-demo">
     <li><a href="{% url 'childapp:aboutapp' %}" class="white-text">About</a></li>
@@ -123,7 +115,19 @@
     });
 
   </script>
-
+  {% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'success'%}
+      <script>M.toast({ html: "{{message}}", classes: 'green rounded', displayLength: 2000 });</script>
+    {% elif message.tags == 'info'%}
+      <script>M.toast({ html: "{{message}}", classes: 'blue rounded', displayLength: 2000 });</script>
+    {% elif message.tags == 'warning'%}
+      <script>M.toast({ html: "{{message}}", classes: 'orange rounded', displayLength: 10000 });</script>
+    {% elif message.tags == 'error'%}
+      <script>M.toast({ html: "{{message}}", classes: 'red rounded', displayLength: 10000 });</script>
+    {% endif %}
+  {% endfor %}
+  {% endif %}
 </body>
 
 </html>

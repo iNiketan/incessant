@@ -40,6 +40,7 @@ main {
      width: 100%;
    }
  
+
   @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
@@ -50,6 +51,8 @@ main {
   }
 
 } 
+
+
 
  @media only screen and (max-width : 600px) {
    #index-banner .section {
@@ -70,10 +73,3 @@ footer.page-footer {
  }
 
 
- #site-logo {
-  height: 45px;
-  width: 231px;
-  position: absolute;
-  max-width: 257px;
-  left: 0px;
-}

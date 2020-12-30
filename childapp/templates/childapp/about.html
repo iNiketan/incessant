@@ -1,19 +1,25 @@
 {% extends 'childapp/base.html' %}
 {% block content %}
-  {% load static %}
-  <div>
-    <!-- images -->
-    <div id="div-img" class="side-box-div">
-        <img src="{% static 'images/23.jpg' %}" alt="image" id="img-about" class="ct-img">
+{% load static %}
+<div>
+  <!-- images -->
+  <div id="div-img" class="side-box-div ct-div-block">
+      <div class="div-img2">
+          <img src="{% static 'images/23.jpg' %}" alt="image" id="img-about" class="ct-img">
       </div>
-    </div>
-    <!-- text -->
-    <div id="div-text" class="side-box-div">
-      <div class="div-text2">
-        <h2 class="" id="about-heading" class="teal-text text-lighten-2">Our Story</h2>
-        <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad sit id pariatur consequuntur quia repellat laudantium accusantium velit optio, libero praesentium adipisci fugit, earum, corporis eius eaque doloribus nam. Sed, ex aliquid.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, rem mollitia excepturi doloribus obcaecati voluptatum unde dignissimos sapiente deleniti. Iusto est ab explicabo sapiente, quisquam laborum. Odit perspiciatis inventore dicta eius vero.</p>
-      </div>
-    </div>
   </div>
-{% endblock %}  
+  </div>
+  <!-- text -->
+  <div id="div-text" class="side-box-div ct-div-block">
+      <div class="div-text2">
+          <h1 class="" id="about-heading" class="teal-text text-lighten-2">Our Story</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad sit id pariatur consequuntur quia repellat
+              laudantium accusantium velit optio, libero praesentium adipisci fugit, earum, corporis eius eaque
+              doloribus nam. Sed, ex aliquid.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, rem mollitia excepturi doloribus
+              obcaecati voluptatum unde dignissimos sapiente deleniti. Iusto est ab explicabo sapiente, quisquam
+              laborum. Odit perspiciatis inventore dicta eius vero.</p>
+      </div>
+  </div>
+</div>
+{% endblock %}

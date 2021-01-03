@@ -6,13 +6,22 @@ from django.contrib.auth import login, logout, authenticate
 from django.core.mail import send_mail
 from django.conf import settings
 
-from .models import Post, Contactus 
+from .models import Post, Contactus, Ques 
 from .forms import CreateUserForm
 
 
 # Create your views her
 def frontpage(request):
     messages.success(request, 'Keep Learning')
+    if request.method == 'POST':
+        email = request.POST['email']
+        que = request.POST['que']
+        imgs = request.POST['imgs']
+        
+        question = Ques(email=email, que=que, img=imgs)
+        send_mail('Contact form', message="{} has asked ques {} {}".format(email, que, imgs), from_email=settings.EMAIL_HOST_USER, recipient_list=['sniketan9@gmail.com'], fail_silently=False)
+        question.save()
+
     return render(request, 'childapp/frontpage.html')
 
 
@@ -25,7 +34,7 @@ def contactus(request):
         name = request.POST['name']
         mob = request.POST['mob']
         email = request.POST['email']
-        msg = request.POST['message']
+        message = request.POST['message']
         contact = Contactus(name=name, mobile=mob, email=email, message=msg)
         send_mail('Contact form', message="{} with mob {} email {} message {}".format(name, mob, email, message), from_email=settings.EMAIL_HOST_USER, recipient_list=['sniketan9@gmail.com','chetansh1104@gmail.com'], fail_silently=False)
         contact.save()

@@ -1,0 +1,36 @@
+{% extends 'childapp/base.html' %}
+
+{% block content %}
+  {% load static %}
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m5">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">ContactUs</span>
+            <p>This box contain emails which came form contact us</p>
+          </div>
+          <div class="card-action">
+            <a href="{% url 'childapp:eContactUs' %}">see them</a>
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="col s12 m5">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">Questions Asked</span>
+            <p>Quesitons asked by peoples.</p>
+          </div>
+          <div class="card-action">
+            <a href="#">see them</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+{% endblock %}

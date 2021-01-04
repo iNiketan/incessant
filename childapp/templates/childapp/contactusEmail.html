@@ -1,0 +1,61 @@
+<!-- this html for eCdetails -->
+
+{% extends 'childapp/base.html' %}
+{% block content %}
+  {% load static %}
+
+  <div class="container">
+      <div class="article-detail">
+        <div class="details">
+            <h4 class="center">{{ edetails.email }}</h2>
+            <p>{{ edetails.date }}</p>
+            <p>{{ edetails.message }}</p>
+            <p>{{ edetails.name }}</p>
+            <p>{{ edetails.mobile }}</p>
+        </div>
+      </div>
+      
+<!-- reply section -->
+      <h5 class="teal-text">Reply</h5>
+      <form class="col s12 m4" method="post" action="#">
+        {% csrf_token %}
+        <!-- prefilled email  -->
+        <div class="row">
+          <div class="row">
+            <div class="input-field col s6 m6">
+              <i class="material-icons prefix">drafts</i>
+              <input value="{{ edetails.email }}" id="cuEmail" name="cuEmail" type="text" class="validate">
+              <label class="active" for="cuEmail">emails</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12 m6">
+              <i class="material-icons prefix">mode_edit</i>
+              <textarea id="cuSub" class="materialize-textarea" name="cuSub" data-length="120"></textarea>
+              <label for="cuSub">subject</label>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="input-field col s12 m6">
+              <i class="material-icons prefix">mode_edit</i>
+              <textarea id="cuMsg" class="materialize-textarea" name="cuMsg" data-length="120"></textarea>
+              <label for="cuMsg">email body</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col m4">
+          <button onclick="M.toast({html:'your messasge sent we will contact you soon'})"
+            class="btn waves-effect waves-light" type="submit" name="action">Send
+            <i class="material-icons right">send</i>
+          </button>
+          </div>
+        </div>
+      </form>  
+<!-- reply sub -->
+    
+  </div>
+{% endblock %}

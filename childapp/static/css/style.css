@@ -5,10 +5,14 @@
  *
  * Made By MaterializeCSS.com
  */
+html{
+  height: 100%;
+}
+
 
 body {
   display: flex;
-  min-height: 100vh;
+  min-height: 100%;
   flex-direction: column;
 }
 
@@ -65,8 +69,11 @@ main {
    font-size: inherit;
  }
  
+
+
 footer.page-footer {
-   margin: 0;
+   margin-top: auto;
+   text-align: center;
  }
 
 

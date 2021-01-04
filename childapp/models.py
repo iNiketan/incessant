@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 #Create your models here.
 class Post(models.Model):
-    sno = models.AutoField(primary_key=True)
+    post_sno = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
     date_published = models.DateField("date published", default=datetime.now)
     draft = models.TextField()
@@ -13,7 +13,7 @@ class Post(models.Model):
         return self.title
 
 class Contactus(models.Model):
-    s_no = models.AutoField(primary_key=True)
+    contact_s_no = models.AutoField(primary_key=True)
     name = models.CharField(max_length=25)
     mobile = models.CharField(max_length=13)
     email = models.CharField(max_length=39)
@@ -33,7 +33,7 @@ class Comment(models.Model):
     timestamp = models.DateTimeField(default=datetime.now)
 
 class Ques(models.Model):
-    s_no = models.AutoField(primary_key=True)
+    que_s_no = models.AutoField(primary_key=True)
     email = models.CharField(max_length=35)
     que = models.TextField()
     img = models.ImageField()

@@ -4,16 +4,18 @@
   <img class="materialboxed" width="" src="{% static 'images/1.jpg' type='img/jpg' %}">
   <div class="container">
     <div class="row">
-      {% for p in post %}
+      {% for c in cnt %}
         <div class="col s12 m4 l4">
           <div class="card small blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title">{{p.title|safe}} </span>
-              <p style="font-size:70%">{{p.date_published|safe}}</p>
-              <p>{{p.draft|safe}}</p>
+              <span class="card-title">{{c.email|safe}} </span>
+              <p style="font-size:70%">{{c.date|safe}}</p>
+              <p>{{c.name|safe}}</p>
+              <p>{{c.mobile|safe}}</p>
+              <p>{{c.message|safe}}</p>
             </div>
             <div class="card-action">
-              <a href="{% url 'childapp:single' p.post_sno %}">Read</a>
+              <a href="{% url 'childapp:eCdetail' c.contact_s_no %}">Read</a>
             </div>
           </div>
         </div>
@@ -22,4 +24,3 @@
   </div>
 
 {% endblock %}
-

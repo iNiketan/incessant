@@ -35,7 +35,7 @@ def contactus(request):
         mob = request.POST['mob']
         email = request.POST['email']
         message = request.POST['message']
-        contact = Contactus(name=name, mobile=mob, email=email, message=msg)
+        contact = Contactus(name=name, mobile=mob, email=email, message=message)
         send_mail('Contact form', message="{} with mob {} email {} message {}".format(name, mob, email, message), from_email=settings.EMAIL_HOST_USER, recipient_list=['sniketan9@gmail.com','chetansh1104@gmail.com'], fail_silently=False)
         contact.save()
         messages.success(request, "message sent")
@@ -55,8 +55,8 @@ def blog(request):
     return render(request, 'childapp/blog.html', context={'post': post})
 
 
-def single(request, sno):
-    details = Post.objects.get(sno=sno)
+def single(request, post_sno):
+    details = Post.objects.get(post_sno=post_sno)
     return render(request, 'childapp/single.html', {'details':details})
 
 
@@ -86,6 +86,24 @@ def signUp(request):
 
     form = UserCreationForm
     return render(request, 'childapp/signup.html', context={'form':form})
+
+
+def emailCategories(request):
+    return render(request, 'childapp/eCategories.html')
+
+def eContactUs(request):
+    cnt = Contactus.objects.all()
+    return render(request, 'childapp/eContactUs.html', context={'cnt': cnt})
+def eCdetail(request, contact_s_no):
+    if request.method == 'POST':
+        cuEmail = request.POST['cuEmail']
+        cuSub = request.POST['cuSub']
+        cuMsg = request.POST['cuMsg']
+        send_mail(subject=cuSub, message=cuMsg, from_email=settings.EMAIL_HOST_USER, recipient_list=[cuEmail], fail_silently=False)
+        messages.success(request, "message sent")
+
+    edetails = Contactus.objects.get(contact_s_no=contact_s_no)
+    return render(request, 'childapp/contactusEmail.html', context={'edetails': edetails})
 
 
 def logout_request(request):

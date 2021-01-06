@@ -105,6 +105,20 @@ def eCdetail(request, contact_s_no):
     edetails = Contactus.objects.get(contact_s_no=contact_s_no)
     return render(request, 'childapp/contactusEmail.html', context={'edetails': edetails})
 
+# contactus email = cu
+def prevEmailsReplies(request):
+    if request.method == "POST":
+        comment=request.POST.get('cuMsg')
+        user=request.user
+        cuSno =request.POST.get('cuSno')
+        post = Contactus.objects.get(sno=cuSno)
+        reply=EReply(comment= comment, user=user, post=post)
+        reply.save()
+        messages.success(request, "Your comment has been posted successfully")
+        
+    return redirect(request, 'childapp/contactusEmail.html')
+
+# #########################################3
 
 def logout_request(request):
     logout(request)

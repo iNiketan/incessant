@@ -42,6 +42,14 @@ class Ques(models.Model):
         return(self.email +" asked a quetions")
 
 
+class EReply(models.Model):
+    r_sno = models.AutoField(primary_key=True)
+    reply = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    question = models.ForeignKey(Contactus, on_delete=models.CASCADE)
+    timestamp= models.DateTimeField(default=datetime.now)
+
+
 
 
 

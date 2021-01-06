@@ -18,5 +18,6 @@ admin.site.register(Post)
 admin.site.register(Contactus)
 admin.site.register(Comment)
 admin.site.register(Ques)
+admin.site.register(EReply)
 
 

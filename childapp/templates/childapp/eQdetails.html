@@ -1,4 +1,4 @@
-<!-- this html for eCdetails -->
+ <!-- this html for Asked quesition emails -->
 
 {% extends 'childapp/base.html' %}
 {% block content %}
@@ -7,11 +7,9 @@
   <div class="container">
       <div class="article-detail">
         <div class="details">
-            <h4 class="center">{{ edetails.email }}</h2>
-            <p>{{ edetails.date }}</p>
-            <p>{{ edetails.message }}</p>
-            <p>{{ edetails.name }}</p>
-            <p>{{ edetails.mobile }}</p>
+            <h4 class="center">{{ eQdetails.email }}</h2>
+            <p>{{ eQdetails.que }}</p>
+            <p>{{ eQdetails.img }}</p>
         </div>
       </div>
       
@@ -24,7 +22,7 @@
           <div class="row">
             <div class="input-field col s6 m6">
               <i class="material-icons prefix">drafts</i>
-              <input value="{{ edetails.email }}" id="cuEmail" name="cuEmail" type="text" class="validate">
+              <input value="{{ eQdetails.email }}" id="cuEmail" name="cuEmail" type="text" class="validate">
               <label class="active" for="cuEmail">emails</label>
             </div>
           </div>

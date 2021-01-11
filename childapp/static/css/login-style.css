@@ -11,7 +11,7 @@ body{
 }
 
 .background{
-    background: url('https://www.pexels.com/photo/food-light-dark-firewood-3376619') no-repeat;
+    background: wheat;
     background-size: cover;
     height: 100vh;
     display: flex;

@@ -10,61 +10,58 @@
         <div class="row center">
           <h5 class="header col s12 blue-text text-lighten-2">need to fund your mission in one solution</h5>
         </div>
-<!--        <div class="row center"> -->
-<!--          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>-->
-<!--        </div> -->
-<!--        <br><br> -->
+
+        <!-- contact us below -->
+        <div class="seciton">
+          <!-- <div class="container"> -->
+          <div class="row">
+            <form class="col s12 m4 offset-l8" method="post" action="{% url 'childapp:contactUs' %}">
+            {% csrf_token %}
+              <div class="row">
+                <div class="input-field col s12 m12 l12">
+                  <input id="id_name" name="name" type="text" class="validate">
+                  <label for="name">Name</label>
+                </div>
+              </div>
+      
+        <!-- mobile number     -->
+              <div class="row">
+                <div class="input-field col s12 m12 l12">
+                  <input id="mob" type="tel" name="mob" data-length="12" class="validate">
+                  <label for="mob">Mobile</label>
+                </div>
+              </div>
+        <!--   email email-->
+              <div class="row">
+                <div class="input-field col s12 m12 l12">
+                  <input id="email" type="email" name="email" class="validate">
+                  <label for="email">Email</label>
+                </div>
+              </div>
+        <!--  message  -->
+              <div class="row">
+                <div class="input-field col s12 m12">
+                    <textarea id="message" class="materialize-textarea" name="message" data-length="120"></textarea>
+                    <label for="message">Message</label>
+                </div>
+              </div>
+      
+        <!--      submit botton-->
+              <button onclick="M.toast({html:'your messasge sent we will contact you soon'})" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right"></i>
+              </button>
+      
+            </form>
+          </div>
+          <!-- </div> -->
+        </div>
+      
+      <!-- form end -->
+      
 
       </div>
     </div>
     <div class="parallax"><img width="100%" height="auto" src="{% static 'images/12.jpg' %}" alt="Unsplashed background img 1"></div>
-  </div>
-
-
-
-<!-- below contact us-->
-  <div class="seciton">
-    <div class="container">
-    <div class="row">
-      <form class="col s12 m4" method="post" action="{% url 'childapp:contactUs' %}">
-      {% csrf_token %}
-        <div class="row">
-          <div class="input-field col s12 m12 l12">
-            <input id="id_name" name="name" type="text" class="validate">
-            <label for="name">Name</label>
-          </div>
-        </div>
-
-  <!-- mobile number     -->
-        <div class="row">
-          <div class="input-field col s12 m12 l12">
-            <input id="mob" type="tel" name="mob" data-length="12" class="validate">
-            <label for="mob">Mobile</label>
-          </div>
-        </div>
-  <!--   email email-->
-        <div class="row">
-          <div class="input-field col s12 m12 l12">
-            <input id="email" type="email" name="email" class="validate">
-            <label for="email">Email</label>
-          </div>
-        </div>
-  <!--  message  -->
-        <div class="row">
-          <div class="input-field col s12 m12">
-              <textarea id="message" class="materialize-textarea" name="message" data-length="120"></textarea>
-              <label for="message">Message</label>
-          </div>
-        </div>
-
-  <!--      submit botton-->
-        <button onclick="M.toast({html:'your messasge sent we will contact you soon'})" class="btn waves-effect waves-light" type="submit" name="action">Submit
-          <i class="material-icons right"></i>
-        </button>
-
-      </form>
-    </div>
-    </div>
   </div>
 
 

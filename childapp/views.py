@@ -6,7 +6,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.core.mail import send_mail
 from django.conf import settings
 
-from .models import Post, Contactus, Ques 
+from .models import Post, Contactus, Ques, EReply
 from .forms import CreateUserForm
 
 
@@ -50,42 +50,42 @@ def carear(request):
     return render(request, 'childapp/carear.html')
 
 
-def blog(request):
-    post = Post.objects.all()
-    return render(request, 'childapp/blog.html', context={'post': post})
+# def blog(request):
+#     post = Post.objects.all()
+#     return render(request, 'childapp/blog.html', context={'post': post})
 
 
-def single(request, post_sno):
-    details = Post.objects.get(post_sno=post_sno)
-    return render(request, 'childapp/single.html', {'details':details})
+# def single(request, post_sno):
+#     details = Post.objects.get(post_sno=post_sno)
+#     return render(request, 'childapp/single.html', {'details':details})
 
 
-def signUp(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            username = request.POST['username']
-            email = request.POST['email']
-            password1 = request.POST['password1']
-            password2 = request.POST['password2']
+# def signUp(request):
+#     if request.method == 'POST':
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             username = request.POST['username']
+#             email = request.POST['email']
+#             password1 = request.POST['password1']
+#             password2 = request.POST['password2']
 
-            user = User.objects.create_user(username, email, password1)
-            user.save()
-            login(request, user)
-            messages.success(request,f"new accout created {user.username}")
-            # print(messages.success)
-            messages.info(request, f"You are loged in as {user.username}")
-            return redirect('childapp:frontpage')
-        else:
-            for msg in form.error_messages:
-                messages.error(request, f"{form.error_messages[msg]}")
+#             user = User.objects.create_user(username, email, password1)
+#             user.save()
+#             login(request, user)
+#             messages.success(request,f"new accout created {user.username}")
+#             # print(messages.success)
+#             messages.info(request, f"You are loged in as {user.username}")
+#             return redirect('childapp:frontpage')
+#         else:
+#             for msg in form.error_messages:
+#                 messages.error(request, f"{form.error_messages[msg]}")
 
-            return render(request=request,
-                          template_name="childapp/signup.html",
-                          context={"form": form})
+#             return render(request=request,
+#                           template_name="childapp/signup.html",
+#                           context={"form": form})
 
-    form = UserCreationForm
-    return render(request, 'childapp/signup.html', context={'form':form})
+#     form = UserCreationForm
+#     return render(request, 'childapp/signup.html', context={'form':form})
 
 
 def emailCategories(request):
@@ -101,22 +101,26 @@ def eCdetail(request, contact_s_no):
         cuMsg = request.POST['cuMsg']
         send_mail(subject=cuSub, message=cuMsg, from_email=settings.EMAIL_HOST_USER, recipient_list=[cuEmail], fail_silently=False)
         messages.success(request, "message sent")
-
     edetails = Contactus.objects.get(contact_s_no=contact_s_no)
     return render(request, 'childapp/contactusEmail.html', context={'edetails': edetails})
 
-# contactus email = cu
-def prevEmailsReplies(request):
-    if request.method == "POST":
-        comment=request.POST.get('cuMsg')
-        user=request.user
-        cuSno =request.POST.get('cuSno')
-        post = Contactus.objects.get(sno=cuSno)
-        reply=EReply(comment= comment, user=user, post=post)
-        reply.save()
-        messages.success(request, "Your comment has been posted successfully")
-        
-    return redirect(request, 'childapp/contactusEmail.html')
+
+""" asked question email """
+
+def eQueAsked(request):
+    eques = Ques.objects.all()
+    return render(request, 'childapp/eQuestion.html', context={'eques': eques})
+
+def eQuesdetails(request, que_s_no):
+    if request.method == 'POST':
+        cuEmail = request.POST['cuEmail']
+        cuSub = request.POST['cuSub']
+        cuMsg = request.POST['cuMsg']
+        send_mail(subject=cuSub, message=cuMsg, from_email=settings.EMAIL_HOST_USER, recipient_list=[cuEmail], fail_silently=False)
+        messages.success(request, "message sent")
+    return render(request, 'childapp/eQdetails.html', context={'eQdetails': eQdetails})
+
+""" asked question email end """
 
 # #########################################3
 
@@ -172,7 +176,4 @@ def login_request2(request):
     else:
         form = AuthenticationForm()
         return render(request, 'childapp/login2.html',{'form': form})
-
-
-def askque(request):
-    return render(request, 'childapp/askque.html')
+     

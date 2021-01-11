@@ -13,7 +13,9 @@
 
 #div-img {
   /* background-color: yellow; */
+  /* border: solid pink 10px; */
   float: left;
+  
 }
 
 #img-about {
@@ -22,9 +24,7 @@
 }
 
 .div-img2 {
-  align-items: center;
   align-content: center;
-  text-align: center;
   padding: 10%;
 }
 
@@ -34,7 +34,7 @@
 
 }
 
-#div-text {
+.div-abt-text {
   /* background-color: blue; */
   float: right;
 }
@@ -42,8 +42,8 @@
 .div-text2 {
   align-items: center;
   align-content: center;
-  text-align: left;
-  padding-left: 0%;
+  text-align: center;
+  padding-left: 10%;
   padding-right: 10%;
   padding-top: 5%;
   padding-bottom: 10%;
@@ -51,6 +51,11 @@
 
 #about-heading {
   text-align: left;
+}
+
+.footer-logo{
+  height: 26px;
+  width: 26px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -74,7 +79,7 @@
   }
 
   .div-text2 {
-      text-align: left;
+      text-align: center;
   }
 
   #about-heading {

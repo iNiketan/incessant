@@ -150,7 +150,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static    ')
+STATICFILES_DIR = [os.path.join(BASE_DIR, 'incessant/staticfiles'),
+os.path.join(BASE_DIR, 'incessant/childapp/static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/images')
 
 # Activate Django-Heroku.

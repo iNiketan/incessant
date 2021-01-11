@@ -71,16 +71,7 @@ main {
  
 
 
-footer.page-footer {
-   margin-top: auto;
-   text-align: center;
+footer .page-footer {
+   margin-top: auto; 
  }
 
-
- #site-logo {
-  height: 45px;
-  width: 231px;
-  position: absolute;
-  max-width: 257px;
-  left: 0px;
-}

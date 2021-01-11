@@ -4,18 +4,16 @@
   <img class="materialboxed" width="100%" src="{% static 'images/1.jpg' type='img/jpg' %}">
   <div class="container">
     <div class="row">
-      {% for c in cnt %}
+      {% for c in eques %}
         <div class="col s12 m4 l4">
           <div class="card small blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title">{{c.email|safe}} </span>
-              <p style="font-size:70%">{{c.date|safe}}</p>
-              <p>{{c.name|safe}}</p>
-              <p>{{c.mobile|safe}}</p>
-              <p>{{c.message|safe}}</p>
+              <!-- <p style="font-size:70%">{{c.date|safe}}</p> -->
+              <p>{{c.que|safe}}</p>
             </div>
             <div class="card-action">
-              <a href="{% url 'childapp:eCdetail' c.contact_s_no %}">Read</a>
+              <a href="{% url 'childapp:eQdetails' c.que_s_no %}">Read</a>
             </div>
           </div>
         </div>

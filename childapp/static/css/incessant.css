@@ -54,13 +54,77 @@
 }
 
 .footer-logo{
-  height: 26px;
-  width: 26px;
+  height: 50px;
+  width: 30px;
+  position: relative;
 }
 
-@media only screen and (max-width: 768px) {
+.contactus-box{
+    align-self: center;
+    max-width: 550px;
+    height: auto;
+    background: rgb(178, 230, 240);
+    border: 0px solid;
+    padding: 25px;
+    margin: auto;
+    border-radius: 20px;
+}
+
+#cont{
+  position: relative;
+  top: -50px; 
+  left: 10px;
+}
+
+.shadow-box1{
+    box-shadow: -30px 30px 20px rgba(0,0,0,0.3);
+
+}
+
+.sendmail-box{
+    align-self: center;
+    max-width: 100%;
+    height: auto;
+    background: rgb(178, 230, 240);
+    border: 0px solid;
+    padding: 25px;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.recivedmail-box{
+  
+  align-items: center;
+  align-content: center;
+  max-width: 100%;
+  height: auto;
+  background: rgb(170, 228, 152);
+  border: 0px solid;
+  padding: 25px;
+  margin: auto;
+  margin-top: 20px  ;
+  border-radius: 20px;
+}
+
+
+
+@media only screen and (max-width: 400px) {
 
   /* about */
+
+  #cont{
+    position: unset;
+    top: auto; 
+    left: auto;
+  }
+
+  .contactus-box{
+    width: 100%;
+    margin: auto;
+    background: white;
+    border-radius: 0px;
+  }
+
   .side-box-div {
       width: 100%;
   }

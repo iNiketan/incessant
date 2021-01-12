@@ -43,6 +43,21 @@ main {
  .parallax-container .section {
      width: 100%;
    }
+
+  .contactus-box{
+    align-self: center;
+    max-width: 400px;
+    height: auto;
+    background: palegoldenrod;
+    border: 15px solid palegoldenrod;
+    padding: 25px;
+    margin: auto;
+    border-radius: 20px;
+  }
+
+  .shadow-box1{
+    box-shadow: -30px 30px 20px rgba(0,0,0,0.3);
+  }  
  
   @media only screen and (max-width : 992px) {
   .parallax-container .section {

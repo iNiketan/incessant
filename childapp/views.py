@@ -118,6 +118,7 @@ def eQuesdetails(request, que_s_no):
         cuMsg = request.POST['cuMsg']
         send_mail(subject=cuSub, message=cuMsg, from_email=settings.EMAIL_HOST_USER, recipient_list=[cuEmail], fail_silently=False)
         messages.success(request, "message sent")
+    eQdetails = Ques.objects.get(que_s_no=que_s_no)
     return render(request, 'childapp/eQdetails.html', context={'eQdetails': eQdetails})
 
 """ asked question email end """
@@ -176,4 +177,7 @@ def login_request2(request):
     else:
         form = AuthenticationForm()
         return render(request, 'childapp/login2.html',{'form': form})
-     
+
+
+def tested(request):
+    return render(request, 'childapp/vid.html')

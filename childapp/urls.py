@@ -20,6 +20,7 @@ urlpatterns = [
     path("email<int:contact_s_no>/", views.eCdetail, name='eCdetail'),
     path("eQuesAsked/", views.eQueAsked, name='eQuesAsked'),
     path("ques<int:que_s_no>/", views.eQuesdetails, name='eQdetails'),
+    path("tested/", views.tested, name='tested')
 
     
 ]

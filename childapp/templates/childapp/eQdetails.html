@@ -5,56 +5,60 @@
   {% load static %}
 
   <div class="container">
-      <div class="article-detail">
-        <div class="details">
-            <h4 class="center">{{ eQdetails.email }}</h2>
-            <p>{{ eQdetails.que }}</p>
-            <p>{{ eQdetails.img }}</p>
+      <div class="section recivedmail-box">
+        <div class="article-detail">
+          <div class="details">
+              <h4 class="center">{{ eQdetails.email }}</h2>
+              <p>{{ eQdetails.que }}</p>
+              <p>{{ eQdetails.img }}</p>
+          </div>
         </div>
       </div>
       
 <!-- reply section -->
       <h5 class="teal-text">Reply</h5>
-      <form class="col s12 m4" method="post" action="#">
-        {% csrf_token %}
-        <!-- prefilled email  -->
-        <div class="row">
+      <div class="section sendmail-box">
+        <form class="col s12 m4" method="post" action="#">
+          {% csrf_token %}
+          <!-- prefilled email  -->
           <div class="row">
-            <div class="input-field col s6 m6">
-              <i class="material-icons prefix">drafts</i>
-              <input value="{{ eQdetails.email }}" id="cuEmail" name="cuEmail" type="text" class="validate">
-              <label class="active" for="cuEmail">emails</label>
+            <div class="row">
+              <div class="input-field col s6 m6">
+                <i class="material-icons prefix">drafts</i>
+                <input value="{{ eQdetails.email }}" id="cuEmail" name="cuEmail" type="text" class="validate">
+                <label class="active" for="cuEmail">emails</label>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="input-field col s12 m6">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="cuSub" class="materialize-textarea" name="cuSub" data-length="120"></textarea>
+                <label for="cuSub">subject</label>
+              </div>
+            </div>
+  
+            <input type="hidden" name="cuSno" value="{{edetails.que_s_no}}" >
+            
+            <div class="row">
+              <div class="input-field col s12 m6">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="cuMsg" class="materialize-textarea" name="cuMsg" data-length="120"></textarea>
+                <label for="cuMsg">email body</label>
+              </div>
             </div>
           </div>
-
+  
           <div class="row">
-            <div class="input-field col s12 m6">
-              <i class="material-icons prefix">mode_edit</i>
-              <textarea id="cuSub" class="materialize-textarea" name="cuSub" data-length="120"></textarea>
-              <label for="cuSub">subject</label>
+            <div class="col m4">
+            <button onclick="M.toast({html:'your messasge sent we will contact you soon'})"
+              class="btn waves-effect waves-light" type="submit" name="action">Send
+              <i class="material-icons right">send</i>
+            </button>
             </div>
           </div>
-
-          <input type="hidden" name="cuSno" value="{{edetails.que_s_no}}" >
-          
-          <div class="row">
-            <div class="input-field col s12 m6">
-              <i class="material-icons prefix">mode_edit</i>
-              <textarea id="cuMsg" class="materialize-textarea" name="cuMsg" data-length="120"></textarea>
-              <label for="cuMsg">email body</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col m4">
-          <button onclick="M.toast({html:'your messasge sent we will contact you soon'})"
-            class="btn waves-effect waves-light" type="submit" name="action">Send
-            <i class="material-icons right">send</i>
-          </button>
-          </div>
-        </div>
-      </form>  
+        </form> 
+      </div> 
 <!-- reply sub -->
 
 <h5>previous replies</h5>

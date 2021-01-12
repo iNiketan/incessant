@@ -7,12 +7,9 @@
       <div class="container">
         <br><br>
         <h1 class="header center teal-text text-lighten-2">Login</h1>
-
-<!--        <div class="row center"> -->
-<!--          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>-->
-<!--        </div> -->
-<!--        <br><br> -->
-
+        <div class="center gray-text text-lighten2">
+          <h5>Only for admin right now</h5>
+        </div>
       </div>
     </div>
     <div class="parallax"><img width="100%" height="auto" src="{% static 'images/13.jpg' %}" alt="Unsplashed background img 1"></div>
@@ -22,11 +19,11 @@
 
 <!-- login below-->
 
-  <div class="section">
-    <div class="container">
+  <div id="cont" class="section contactus-box shadow-box1">
+    <!-- <div class="container"> -->
     <div class="row">
 
-        <form class="col s12 m4 left offset-l3" method="POST" action="{% url 'childapp:login_request' %}">
+        <form class="col s12" method="POST" action="{% url 'childapp:login_request' %}">
               {% csrf_token %}
               <div class="row">
                 <div class="input-field col s12 m12">
@@ -50,6 +47,6 @@
           
         </form>
     </div>
-    </div>
+    <!-- </div> -->
   </div>
 {% endblock %}

@@ -1,8 +1,120 @@
 {% extends 'childapp/base.html' %}
 {% block content %}
   {% load static %}
-  <video width='720' height= '600' controls>
-    <source src="{% static 'videos/some.mp4' type='video/mp4' %}">
-      Your browser does not support the video tag.
-  </video>
+  <style>
+  .hero-image {
+    background-image: url("");
+    background-color: #cccccc;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  .hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
+  #cont{
+    position: absolute;
+    top: 40px; 
+    left: 40px;
+  }
+
+  .contactus-box{
+    align-self: center;
+    width: 400px;
+    background: palegoldenrod;
+    border: solid palegoldenrod;
+    padding: 25px;
+    margin: auto;
+    border-radius: 20px;
+  }
+
+  .shadow-box1{
+    box-shadow: -30px 30px 20px 10px rgba(0,0,0,0.3);
+  }
+
+  @media only screen and (max-width: 400px) {
+
+    /* about */
+
+    .contactus-box{
+      width: 100%;
+      margin: 0px;
+      background: orange;
+    }
+  }
+
+
+
+  </style>
+  
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">Contact Us</h1>
+        <div class="row center">
+          <h5 class="header col s12 blue-text text-lighten-2">need to fund your mission in one solution</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img width="100%" height="auto" src="{% static 'images/12.jpg' %}" alt="Unsplashed background img 1"></div>
+  </div>
+
+  <!-- contact us below -->
+  <div id="cont" class="contactus-box shadow-box1">
+    <div class="seciton">
+      <!-- <div class="container"> -->
+      <div class="row">
+        <form class="col s12" method="post" action="{% url 'childapp:contactUs' %}">
+        {% csrf_token %}
+          <div class="row">
+            <div class="input-field col s12 m12 l12">
+              <input id="id_name" name="name" type="text" class="validate">
+              <label for="name">Name</label>
+            </div>
+          </div>
+  
+    <!-- mobile number     -->
+          <div class="row">
+            <div class="input-field col s12 m12 l12">
+              <input id="mob" type="tel" name="mob" data-length="12" class="validate">
+              <label for="mob">Mobile</label>
+            </div>
+          </div>
+    <!--   email email-->
+          <div class="row">
+            <div class="input-field col s12 m12 l12">
+              <input id="email" type="email" name="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div>
+    <!--  message  -->
+          <div class="row">
+            <div class="input-field col s12 m12">
+                <textarea id="message" class="materialize-textarea" name="message" data-length="120"></textarea>
+                <label for="message">Message</label>
+            </div>
+          </div>
+  
+    <!--      submit botton-->
+          <button onclick="M.toast({html:'your messasge sent we will contact you soon'})" class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right"></i>
+          </button>
+  
+        </form>
+      </div>
+      <!-- </div> -->
+    </div>
+  </div>
+
+  <!-- form end -->
 {% endblock %}

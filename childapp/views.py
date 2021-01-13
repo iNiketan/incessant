@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 from .models import Post, Contactus, Ques, EReply
 from .forms import CreateUserForm
@@ -88,12 +89,16 @@ def carear(request):
 #     return render(request, 'childapp/signup.html', context={'form':form})
 
 
+@login_required(login_url='childapp:login_request')
 def emailCategories(request):
     return render(request, 'childapp/eCategories.html')
 
+@login_required(login_url='childapp:login_request')
 def eContactUs(request):
     cnt = Contactus.objects.all()
     return render(request, 'childapp/eContactUs.html', context={'cnt': cnt})
+
+@login_required(login_url='childapp:login_request')    
 def eCdetail(request, contact_s_no):
     if request.method == 'POST':
         cuEmail = request.POST['cuEmail']
@@ -106,11 +111,12 @@ def eCdetail(request, contact_s_no):
 
 
 """ asked question email """
-
+@login_required(login_url='childapp:login_request')
 def eQueAsked(request):
     eques = Ques.objects.all()
     return render(request, 'childapp/eQuestion.html', context={'eques': eques})
 
+@login_required(login_url='childapp:login_request')
 def eQuesdetails(request, que_s_no):
     if request.method == 'POST':
         cuEmail = request.POST['cuEmail']
@@ -155,29 +161,30 @@ def login_request(request):
         return render(request, 'childapp/login.html',{'form': form})
 
 
-def login_request2(request):
-    if request.method == 'POST':
-        #form = AuthenticationForm(data=request.POST)
-        #if form.is_valid():
-        print('form valided')
-        loginusername = request.POST['loginusername']
-        loginpassword = request.POST['loginpassword']
-        user = authenticate(request, username=loginusername, password=loginpassword)
-        if user is not None:
-            login(request, user)
-            messages.info(request, f"You are loged in as {user.username}")
-            return redirect('childapp:frontpage')
+# def login_request2(request):
+#     if request.method == 'POST':
+#         #form = AuthenticationForm(data=request.POST)
+#         #if form.is_valid():
+#         print('form valided')
+#         loginusername = request.POST['loginusername']
+#         loginpassword = request.POST['loginpassword']
+#         user = authenticate(request, username=loginusername, password=loginpassword)
+#         if user is not None:
+#             login(request, user)
+#             messages.info(request, f"You are loged in as {user.username}")
+#             return redirect('childapp:frontpage')
 
-        else:
-            form = AuthenticationForm(data=request.POST)
-            for msg in form.error_messages:
-                messages.error(request, f"{form.error_messages[msg]}")
-            return render(request, 'childapp/login2.html', {'form': form})
+#         else:
+#             form = AuthenticationForm(data=request.POST)
+#             for msg in form.error_messages:
+#                 messages.error(request, f"{form.error_messages[msg]}")
+#             return render(request, 'childapp/login2.html', {'form': form})
 
-    else:
-        form = AuthenticationForm()
-        return render(request, 'childapp/login2.html',{'form': form})
+#     else:
+#         form = AuthenticationForm()
+#         return render(request, 'childapp/login2.html',{'form': form})
 
 
+# for testing some page view
 def tested(request):
     return render(request, 'childapp/vid.html')

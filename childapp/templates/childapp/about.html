@@ -3,24 +3,27 @@
 {% load static %}
 
 <div>
-  <!-- images -->
-  <div id="div-abt-img" class="side-box-div ct-div-block">
-      <div class="div-img2">
-          <img src="{% static 'images/23.jpg' %}" alt="image" id="img-about" class="ct-img">
-      </div>
-  </div>
-  </div>
-  <!-- text -->
-  <div class="side-box-div ct-div-block div-text">
-      <div class="div-text2">
-          <h1 class="" id="about-heading" class="teal-text text-lighten-2">Our Story</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad sit id pariatur consequuntur quia repellat
-              laudantium accusantium velit optio, libero praesentium adipisci fugit, earum, corporis eius eaque
-              doloribus nam. Sed, ex aliquid.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, rem mollitia excepturi doloribus
-              obcaecati voluptatum unde dignissimos sapiente deleniti. Iusto est ab explicabo sapiente, quisquam
-              laborum. Odit perspiciatis inventore dicta eius vero.</p>
-      </div>
-  </div>
+    <div id="about-img"> 
+        <!-- dif border -->
+        <div class="about-img-contaner">
+            <img src="{% static 'images/23.jpg' %}" alt="image" id="img-about" class="ct-img">
+        </div>
+    
+    </div>
+    
+    <div id="about-text">
+        <!-- <div class="about-text-contaner"> -->
+            <div class="div-text2">
+                <h1 id="about-heading" class="teal-text text-lighten-2">Our Story</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad sit id pariatur consequuntur quia repellat
+                    laudantium accusantium velit optio, libero praesentium adipisci fugit, earum, corporis eius eaque
+                    doloribus nam. Sed, ex aliquid.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, rem mollitia excepturi doloribus
+                    obcaecati voluptatum unde dignissimos sapiente deleniti. Iusto est ab explicabo sapiente, quisquam
+                    laborum. Odit perspiciatis inventore dicta eius vero.</p>
+            </div>
+        <!-- </div> -->
+    </div>
 </div>
+
 {% endblock %}

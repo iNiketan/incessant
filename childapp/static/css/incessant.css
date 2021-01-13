@@ -1,51 +1,23 @@
 /*  about page */
 
-.ct-div-block{
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.side-box-div {
-  width: 50%;
-}
-
-#div-img {
-  /* background-color: yellow; */
-  /* border: solid pink 10px; */
-  float: left;
-  
-}
-
 #img-about {
   height: 550px;
+  border: 0px solid;
+  border-radius: 20px;
 
 }
-
-.div-img2 {
-  align-content: center;
-  padding: 10%;
-}
-
 
 .ct-img {
   max-width: 100%;
 
 }
 
-.div-abt-text {
-  /* background-color: blue; */
-  float: right;
-}
-
 .div-text2 {
   align-items: center;
   align-content: center;
-  text-align: center;
-  padding-left: 10%;
+  text-align: left;
+  /* padding-left: 10%; */
   padding-right: 10%;
-  padding-top: 5%;
   padding-bottom: 10%;
 }
 
@@ -58,6 +30,36 @@
   width: 30px;
   position: relative;
 }
+
+#about-img{
+  width: 50%;
+  /* background-color: orange; */
+  float: left;
+  position: relative;
+}
+
+.about-img-contaner{
+    justify-content: center;
+    align-content: right;
+    align-self: center;
+    max-width: auto;
+    height: auto;
+    /* background: rgb(178, 230, 240); */
+    border: 0px solid;
+    padding-left: 20%;
+    margin: auto;
+    border-radius: 20px;
+  
+}
+
+
+#about-text{
+  width: 50%;
+  /* background-color: green; */
+  float: right;
+  position: relative;
+}
+
 
 .contactus-box{
     align-self: center;
@@ -139,6 +141,29 @@
 
   /* about */
 
+  #about-img{
+    width: 100%;
+    /* background-color: orange; */
+    float: none;
+  }
+
+  #about-text{
+    width: 100%;
+    /* background-color: green; */
+    float: none;
+  }
+
+  .about-img-contaner{
+    align-content: center;
+    max-width: 100%;
+    height: auto;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0px;
+  
+    }
+
   #cont{
     position: unset;
     top: auto; 
@@ -162,33 +187,19 @@
   
   }
 
-
-  .side-box-div {
-      width: 100%;
-  }
-
-  #div-img {
-      float: center;
-  }
-
   #img-about {
       height: auto;
 
   }
 
-  .div-img2 {
-      padding: 0px;
-  }
-
   .div-text2 {
       text-align: center;
+      padding: 0 2% 2% 2%;
   }
 
   #about-heading {
       text-align: center;
   }
 
-  .img-vanish{
-    display: none;
-  }
+  
 }

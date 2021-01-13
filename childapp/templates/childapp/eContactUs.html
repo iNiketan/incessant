@@ -1,26 +1,33 @@
 {% extends 'childapp/base.html' %}
 {% block content %}
   {% load static %}
-  <img class="materialboxed" width="100%" src="{% static 'images/1.jpg' type='img/jpg' %}">
-  <div class="container">
-    <div class="row">
-      {% for c in cnt %}
-        <div class="col s12 m4 l4">
-          <div class="card small blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">{{c.email|safe}} </span>
-              <p style="font-size:70%">{{c.date|safe}}</p>
-              <p>{{c.name|safe}}</p>
-              <p>{{c.mobile|safe}}</p>
-              <p>{{c.message|safe}}</p>
-            </div>
-            <div class="card-action">
-              <a href="{% url 'childapp:eCdetail' c.contact_s_no %}">Read</a>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">Zazen</h1>
+      </div>
     </div>
+    <div class="parallax"><img width="100%" height="auto" src="{% static 'images/16.jpg' %}" alt="Unsplashed background img 1"></div>
   </div>
+
+  <br>
+  <div class="container">
+    {% for c in cnt %}
+    <div class="row mail-stack shadow-box2">
+      <div>
+        <div class="mail-stack-email">
+          <a href="{% url 'childapp:eCdetail' c.contact_s_no %}">
+            <span class="card-title">{{c.email|safe}} </span> 
+          </a>
+        </div>
+        <div class="mail-stack-body">
+          <span class="card-title">{{c.message|safe}} </span> 
+        </div>
+      </div> 
+    </div>     
+    {% endfor %}
+  </div>  
 
 {% endblock %}

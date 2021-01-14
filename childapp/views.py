@@ -15,12 +15,13 @@ from .forms import CreateUserForm
 def frontpage(request):
     messages.success(request, 'Keep Learning')
     if request.method == 'POST':
+
         email = request.POST['email']
         que = request.POST['que']
-        imgs = request.POST['imgs']
+        imgs = request.FILES['imgs']
         
         question = Ques(email=email, que=que, img=imgs)
-        send_mail('Contact form', message="{} has asked ques {} {}".format(email, que, imgs), from_email=settings.EMAIL_HOST_USER, recipient_list=['sniketan9@gmail.com'], fail_silently=False)
+        #send_mail('Contact form', message="{} has asked ques {} {}".format(email, que, imgs), from_email=settings.EMAIL_HOST_USER, recipient_list=['sniketan9@gmail.com'], fail_silently=False)
         question.save()
 
     return render(request, 'childapp/frontpage.html')
@@ -159,30 +160,6 @@ def login_request(request):
     else:
         form = AuthenticationForm()
         return render(request, 'childapp/login.html',{'form': form})
-
-
-# def login_request2(request):
-#     if request.method == 'POST':
-#         #form = AuthenticationForm(data=request.POST)
-#         #if form.is_valid():
-#         print('form valided')
-#         loginusername = request.POST['loginusername']
-#         loginpassword = request.POST['loginpassword']
-#         user = authenticate(request, username=loginusername, password=loginpassword)
-#         if user is not None:
-#             login(request, user)
-#             messages.info(request, f"You are loged in as {user.username}")
-#             return redirect('childapp:frontpage')
-
-#         else:
-#             form = AuthenticationForm(data=request.POST)
-#             for msg in form.error_messages:
-#                 messages.error(request, f"{form.error_messages[msg]}")
-#             return render(request, 'childapp/login2.html', {'form': form})
-
-#     else:
-#         form = AuthenticationForm()
-#         return render(request, 'childapp/login2.html',{'form': form})
 
 
 # for testing some page view

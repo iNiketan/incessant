@@ -36,7 +36,7 @@ class Ques(models.Model):
     que_s_no = models.AutoField(primary_key=True)
     email = models.CharField(max_length=35)
     que = models.TextField()
-    img = models.ImageField()
+    img = models.ImageField(upload_to='akedque', default='default.png', blank=True)
 
     def __str__(self):
         return(self.email +" asked a quetions")

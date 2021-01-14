@@ -2,7 +2,17 @@
 
 {% block content %}
   {% load static %}
-  <img class="materialboxed" width="1400" height="400" src="{% static 'images/11.jpg' type='img/jpg' %}">
+  
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">Career</h1>
+      </div>  
+    </div>
+    <div class="parallax"><img width="100%" height="auto" src="{% static 'images/11.jpg' %}" alt="Unsplashed background img 1"></div>
+  </div>
+
   <div class="container">
     <h2 class="teal-text text-ligthen-2"> Career </h2>
     <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore repellat soluta tempore sed vitae tenetur perspiciatis repudiandae reprehenderit consectetur voluptatum possimus veritatis labore architecto esse, impedit, commodi numquam porro aperiam distinctio doloribus. </p>

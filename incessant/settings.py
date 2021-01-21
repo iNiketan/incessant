@@ -9,14 +9,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'h@(ea2x74qv+hlg=)s62%o+1t9g_+-h&2ze_og2p#^i7p1#k(!'
+with open(os.path.join(BASE_DIR, 'secretkey.txt')) as f:
+    SECRET_KEY = f.read().strip()
+# SECRET_KEY = 'h@(ea2x74qv+hlg=)s62%o+1t9g_+-h&2ze_og2p#^i7p1#k(!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
+# email setup need to change
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'sniketan9@gmail.com'
-EMAIL_HOST_PASSWORD = "googleisgreateandsecure9"
+EMAIL_HOST_PASSWORD = "thispasswordisseccure9"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -160,5 +163,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 
+
+
+# #Https settings (only for production server)
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
+
+# #hsts setting 
+# SECURE_HSTS_SECONDS = 31536000 #1year
+# SECURE_HSTS_PRELOAD =True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 

@@ -19,7 +19,6 @@ def frontpage(request):
         email = request.POST['email']
         que = request.POST['que']
         imgs = request.FILES['imgs']
-        
         question = Ques(email=email, que=que, img=imgs)
         #send_mail('Contact form', message="{} has asked ques {} {}".format(email, que, imgs), from_email=settings.EMAIL_HOST_USER, recipient_list=['sniketan9@gmail.com'], fail_silently=False)
         question.save()
@@ -38,7 +37,7 @@ def contactus(request):
         email = request.POST['email']
         message = request.POST['message']
         contact = Contactus(name=name, mobile=mob, email=email, message=message)
-        send_mail('Contact form', message="{} with mob {} email {} message {}".format(name, mob, email, message), from_email=settings.EMAIL_HOST_USER, recipient_list=['sniketan9@gmail.com','chetansh1104@gmail.com'], fail_silently=False)
+        send_mail('Contact form', message="{} with mob {} email {} message {}".format(name, mob, email, message), from_email=settings.EMAIL_HOST_USER, recipient_list=['sniketan9@gmail.com'], fail_silently=False)
         contact.save()
         messages.success(request, "message sent")
     return render(request, 'childapp/contactUs.html')
@@ -90,10 +89,14 @@ def carear(request):
 #     return render(request, 'childapp/signup.html', context={'form':form})
 
 
+# email categories
 @login_required(login_url='childapp:login_request')
 def emailCategories(request):
     return render(request, 'childapp/eCategories.html')
+# email categories end
 
+
+"""contactus reply"""
 @login_required(login_url='childapp:login_request')
 def eContactUs(request):
     cnt = Contactus.objects.all()
@@ -109,6 +112,7 @@ def eCdetail(request, contact_s_no):
         messages.success(request, "message sent")
     edetails = Contactus.objects.get(contact_s_no=contact_s_no)
     return render(request, 'childapp/contactusEmail.html', context={'edetails': edetails})
+"""contactus reply end"""
 
 
 """ asked question email """
@@ -127,10 +131,9 @@ def eQuesdetails(request, que_s_no):
         messages.success(request, "message sent")
     eQdetails = Ques.objects.get(que_s_no=que_s_no)
     return render(request, 'childapp/eQdetails.html', context={'eQdetails': eQdetails})
-
 """ asked question email end """
 
-# #########################################3
+
 
 def logout_request(request):
     logout(request)

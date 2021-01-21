@@ -11,7 +11,7 @@ admin.site.site_header = "Incessant Admin"
     
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('childapp.urls'))
+    path('', include('childapp.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

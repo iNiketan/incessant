@@ -63,7 +63,7 @@
 
 .contactus-box{
     align-self: center;
-    max-width: 550px;
+    width: 600px;
     height: auto;
     background: rgb(178, 230, 240);
     border: 0px solid;
@@ -135,6 +135,7 @@
   float: right;
 
 }
+
 
 
 @media only screen and (max-width: 400px) {

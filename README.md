@@ -1,2 +1,1 @@
-# Zazen
-
+# ZazenSols

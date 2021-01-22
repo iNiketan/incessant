@@ -11,15 +11,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 with open(os.path.join(BASE_DIR, 'secretkey.txt')) as f:
     SECRET_KEY = f.read().strip()
-# SECRET_KEY = 'h@(ea2x74qv+hlg=)s62%o+1t9g_+-h&2ze_og2p#^i7p1#k(!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # email setup need to change
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'sniketan9@gmail.com'
-EMAIL_HOST_PASSWORD = "thispasswordisseccure9"
+EMAIL_HOST_USER = 'emailid'
+EMAIL_HOST_PASSWORD = "password"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

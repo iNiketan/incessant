@@ -4,6 +4,7 @@
   height: 550px;
   border: 0px solid;
   border-radius: 20px;
+  
 
 }
 
@@ -47,6 +48,7 @@
     /* background: rgb(178, 230, 240); */
     border: 0px solid;
     padding-left: 20%;
+    padding-top: 20px;
     margin: auto;
     border-radius: 20px;
   

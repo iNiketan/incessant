@@ -6,7 +6,9 @@
     <div id="about-img"> 
         <!-- dif border -->
         <div class="about-img-contaner">
-            <img src="{% static 'images/23.jpg' %}" alt="image" id="img-about" class="ct-img">
+            <div>
+                <img src="{% static 'images/23.jpg' %}" alt="image" id="img-about" class="ct-img">
+            </div>
         </div>
     
     </div>
@@ -21,6 +23,8 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, rem mollitia excepturi doloribus
                     obcaecati voluptatum unde dignissimos sapiente deleniti. Iusto est ab explicabo sapiente, quisquam
                     laborum. Odit perspiciatis inventore dicta eius vero.</p>
+                
+                    <p>{{ MEDIA_URL }}</p>    
             </div>
         <!-- </div> -->
     </div>
